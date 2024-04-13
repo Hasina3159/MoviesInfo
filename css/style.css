@@ -1,0 +1,164 @@
+@font-face {
+    font-family: geon;
+    src: url("../fonts/geon.otf");
+}
+:root{
+    --primary: white;
+    --background:rgb(25, 27, 65);
+}
+
+body{
+    color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    background-repeat: no-repeat;
+    justify-content: center;
+    font-family: geon;
+}
+
+.b{
+    font-weight: bolder;
+    font-family: geon;
+    font-size: 2rem;
+}
+
+input[type="text"]{
+    text-indent: 1rem;
+    margin-right: 1rem;
+}
+
+input[type="text"]:focus{
+    outline: none;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+ 
+input{
+    height: 35px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border:none;
+}
+
+input[type="button"]{
+    transition: 0.1s;
+    background-color: orange;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover{
+    transition: 0.1s;
+    box-shadow: 0 5px 5px black;
+    color: black;
+}
+
+.allMovies {
+    display:flex;
+    height: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*border: 1px solid red;*/
+    padding: none;  
+    color: white;
+}
+
+.allMovies .element{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 250px; height: 400px;
+    position: relative;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+    overflow-x: hidden;
+    /*background-color: white;*/
+    flex-direction: column;
+}
+
+.allMovies .element .image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.allMovies img{
+    transition: 0.3s;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.allMovies img:hover{
+    transition: 0.1s;
+    height: 355px;
+}
+
+.allMovies .movieTitle{
+    width: 80%;
+    padding: 0px 30px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary);
+    margin-top: 1rem;
+}
+
+body{
+    padding-top: 100px;
+    font-family: verdana;
+}
+
+/* =================================================================
+navbar 
+*/
+
+nav{
+    display: flex;
+    padding-top: 25px;
+    top: 0;left: 0;
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    border: 1px dotted black;
+    display: flex;
+    justify-content: space-between;
+    background: rgb(7,1,33);
+    background: linear-gradient(180deg, rgba(7,1,33,1) 0%, rgba(3,2,42,1) 26%, rgba(0,1,47,1) 100%);
+    background-repeat: no-repeat;
+    /*box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);*/
+    /*background-color: white;*/
+}
+
+nav .left{
+    margin-left: 100px;
+}
+
+nav .right{
+    margin-right: 25px;
+}
+
+/* =================================================================
+details 
+*/
+
+.detail{
+    display: flex;
+}
+.detail .image{
+    width: 100%;
+
+}
+
