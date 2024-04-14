@@ -6,7 +6,7 @@
 :root{
     --primary: white;
     --secondary:orange;
-    --background:rgb(25, 27, 65);
+    --background:rgb(33, 38, 71);
 }
 
 .pages{
@@ -52,8 +52,6 @@
 .pages .number.actual{
     background-color: var(--secondary);
 }
-
-
 
 #loadingIndicator{
     width: 100%;

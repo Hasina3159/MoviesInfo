@@ -4,7 +4,7 @@
 }
 :root{
     --primary: white;
-    --background:rgb(25, 27, 65);
+    --background:rgb(33, 38, 71);
     --width:70vh;
     --height:50vh;
 }
@@ -77,11 +77,14 @@ input[type="button"]:hover{
     justify-content: center;
     justify-items: center;
     align-items: center;
-    width: 250px; height: 400px;
+    width: 215px;
+    height: 370px;
     position: relative;
-    padding: 15px;
+    margin: 1vh;
     transition: 0.5s;
-    overflow-x: hidden;
+    overflow: hidden;
+    background-color: black;
+    color: white;
     flex-direction: column;
 }
 
@@ -90,48 +93,50 @@ input[type="button"]:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-    width: 250px;
+    height: 370px;
+    width: 200px;
     border-radius: 5px;
     overflow: hidden;
     z-index: 0;
 }
 
-.allMovies img{
+.allMovies .element img{
+    position: absolute;
+    top: 10px;
     transition: 0.3s;
     border-radius: 5px;
     z-index: 0;
-    height: 100%;
+    height: 300px;
 }
 
 .allMovies .element .image .front{
     z-index: 2000;
+    transition: 0.5s;
     border: 10px solid black;
     position: absolute;
-    top: 5px;
-    width: 195px;
-    height: 40vh;
+    top: 0px;
+    width: 200px;
+    height: 370px;
     cursor: pointer;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, rgba(0, 0, 0, 0.0) 60%, rgb(0, 0, 0) 80%,rgb(0, 0, 0) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, rgba(0, 0, 0, 0.0) 65%, rgb(0, 0, 0) 80%,rgb(0, 0, 0) 90%,rgb(0, 0, 0) 100%);
 }
 
-.allMovies img:hover{
-    transition: 0.1s;
-    height: 100%;
+.allMovies .element .image .front:hover{
+    transition: 0.5s;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, rgba(0, 0, 0, 0.5) 40%, rgb(0, 0, 0) 75%,rgba(0, 0, 0, 0.9) 90%,rgb(0, 0, 0) 100%);
+
 }
 
 .allMovies .movieTitle{
     display: flex;
-
     margin: auto;
-    height: 5rem;
-    width: 70%;
+    width: 80%;
     text-align: center;
     font-weight: bold;
     color: var(--primary);
     font-family: geon;
-    margin-top: 1.5rem;
     z-index: 10;
+    padding-bottom: 1rem;
 }
 
 .infos{
@@ -143,6 +148,19 @@ body{
     font-family: verdana;
 }
 
+.error{
+    font-family: geon;
+    position: absolute;
+}
+
+.date{
+    position: absolute;
+    z-index: 3;
+    top: 15px;
+    right: 15px;
+    text-shadow: 1px 1px 3px rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 /* =================================================================
 navbar 
 */
@@ -171,16 +189,3 @@ nav .left{
 nav .right{
     margin-right: 25px;
 }
-
-/* =================================================================
-details 
-*/
-
-.detail{
-    display: flex;
-}
-.detail .image{
-    width: 100%;
-
-}
-

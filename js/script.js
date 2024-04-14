@@ -71,7 +71,7 @@ async function getMovieByTitle(title, actualPage){
 async function getMovieByID(ID){
     const loadingIndicator = document.getElementById('loadingIndicator');
     loadingIndicator.style.display = 'block';
-    const query = `http://www.omdbapi.com/?i=${ID}&apikey=${API_KEY}`;
+    const query = `http://www.omdbapi.com/?i=${ID}&apikey=${API_KEY}&plot=full`;
     const response = await fetch(query);
     const movies = await response.json();
     loadingIndicator.style.display = 'none';
@@ -82,17 +82,17 @@ function showMovieDetails(infos){
     if(infos.Response == "True"){
         allMovies.innerHTML = `
         <div class="detail" id="${infos.imdbID}">
-            <div class="image">
+            <div class="imageDetail">
                 <img src="${infos.Poster}" alt="">
             </div>
-            <div class="infos">
+            <div class="infosDetail">
                 <div class="stars">
 
                 </div>
-                <div class="movieTitle">
+                <div class="movieTitleDetail">
                     <b> Titre : </b> ${infos.Title != "N/A" ? infos.Title : "Aucun(e)"}
                 </div>
-                <div class="synopsis" id="synopsis">
+                <div class="synopsisDetail" id="synopsis">
                     <b> Synopsis : </b> ${infos.Plot != "N/A" ? infos.Plot : "Aucun(e)"}
                 </div>
             </div>
@@ -106,6 +106,13 @@ function showMovieDetails(infos){
 function showMovie(infos){
     allMovies.innerHTML = allMovies.innerHTML + `
         <div class="element">
+            <div class="date">
+                ${infos.Year.length == 4 ? infos.Year : infos.Year.slice(0, -1)}
+            </div>
+            <div class="error">
+                Image not found
+            </div>
+            
             <div class="image">
 				<div class="front" id="${infos.imdbID}"></div>
                 <img src="${infos.Poster}" alt="">
