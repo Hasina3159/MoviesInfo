@@ -4,6 +4,7 @@ const allMovies = document.getElementById('allMovies');
 const pagesDOM = document.getElementById('pages');
 const API_KEY = "aca58a81";
 const prev = document.getElementById("prev");
+const background = document.getElementById("background");
 let history = [];
 let elements = document.getElementsByClassName("front");
 let all = {};
@@ -124,21 +125,35 @@ async function getMovieByID(ID){
 };
 
 function showMovieDetails(infos){
+	if (infos.Poster){
+		background.style.backgroundImage = "url('" + infos.Poster + "')";
+	}
 	if(infos.Response == "True"){
 		allMovies.innerHTML = `
-		<div class="detail" id="${infos.imdbID}">
+		<div class="detail" id="${infos.imdbID}" id="mamamody">
 			<div class="imageDetail">
-				<img src="${infos.Poster}" alt="">
-			</div>
-			<div class="infosDetail">
-				<div class="stars">
+				<div class="rating">
+					${infos.imdbRating} <span class="material-symbols-sharp">
+					star
+					</span>
+				</div>
+				<img src="${infos.Poster}" alt="${infos.Title}">
+				<div class="overlap"></div>
 
-				</div>
+			</div>
+
+			<div class="infosDetail">
+				<div class="line"></div>
 				<div class="movieTitleDetail">
-					<b> Titre : </b> ${infos.Title != "N/A" ? infos.Title : "Aucun(e)"}
+					${infos.Title != "N/A" ? infos.Title : "Aucun(e)"}
 				</div>
+				<div class="line"></div>
+				<div class="year">
+					Year : ${infos.Year.length == 4 || infos.Year.length == 9 ? infos.Year : infos.Year.slice(0, -1)}
+				</div>
+				<div class="line"></div>
 				<div class="synopsisDetail" id="synopsis">
-					<b> Synopsis : </b> ${infos.Plot != "N/A" ? infos.Plot : "Aucun(e)"}
+					${infos.Plot != "N/A" ? infos.Plot : "Aucun(e)"}
 				</div>
 			</div>
 		</div>
@@ -153,7 +168,7 @@ function showMovie(infos){
 	allMovies.innerHTML = allMovies.innerHTML + `
 		<div class="element">
 			<div class="date">
-				${infos.Year.length == 4 ? infos.Year : infos.Year.slice(0, -1)}
+				${infos.Year.length == 4 || infos.Year.length == 9 ? infos.Year : infos.Year.slice(0, -1)}
 			</div>
 			<div class="error">
 				Image not found

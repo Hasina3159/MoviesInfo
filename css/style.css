@@ -36,22 +36,8 @@ body{
     background: var(--background);
     background-repeat: no-repeat;
     justify-content: center;
+    align-items: center;
     font-family: geon;
-}
-
-.b{
-    font-weight: bolder;
-    font-family: geon;
-    font-size: 2rem;
-}
-
-input[type="text"]{
-    text-indent: 1rem;
-    margin-right: 1rem;
-}
-
-input[type="text"]:focus{
-    outline: none;
 }
 
 .container{
@@ -59,34 +45,15 @@ input[type="text"]:focus{
     justify-content: center;
     align-items: center;
     overflow-y: scroll;
-}
- 
-input{
-    height: 4vh;
-    font-size: 1rem;
-    border-radius: 5px;
-    border:none;
-}
-
-input[type="button"]{
-    height: 4vh;
-    transition: 0.1s;
-    background-color: orange;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    cursor: pointer;
-}
-
-input[type="button"]:hover{
-    transition: 0.1s;
-    box-shadow: 0 5px 5px black;
-    color: black;
+    margin-top: 5rem;
+    width: 100%;
 }
 
 .allMovies {
     display:flex;
+    position: relative;
     height: 100%;
+    width: 100%;
     justify-content: center;
     flex-wrap: wrap;
     padding: none;  
@@ -165,8 +132,8 @@ input[type="button"]:hover{
 }
 
 body{
-    padding-top: 100px;
     font-family: verdana;
+    margin-top: 5rem;
 }
 
 .error{
@@ -179,7 +146,7 @@ body{
     z-index: 3;
     top: 15px;
     right: 15px;
-    text-shadow: 1px 1px 3px rgb(0, 0, 0);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /* =================================================================
@@ -187,20 +154,17 @@ navbar
 */
 
 nav{
-    display: flex;
+    margin-bottom: 10rem;
     top: 0;left: 0;
     position: absolute;
     width: 100%;
-    height: 7vh;
-    border: 1px dotted black;
+    height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: rgb(7,1,33);
     background: linear-gradient(180deg, rgba(7,1,33,1) 0%, rgba(3,2,42,1) 26%, rgba(0,1,47,1) 100%);
     background-repeat: no-repeat;
-    /*box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);*/
-    /*background-color: white;*/
 }
 
 nav .left{
@@ -210,4 +174,87 @@ nav .left{
 
 nav .right{
     margin-right: 25px;
+}
+
+input[type="text"]{
+    text-indent: 1rem;
+    margin-right: 1rem;
+}
+
+input[type="text"]:focus{
+    outline: none;
+}
+
+input{
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border:none;
+}
+
+input[type="button"]{
+    height: 2.1rem;
+    transition: 0.1s;
+    background-color: orange;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover{
+    transition: 0.1s;
+    box-shadow: 0 5px 5px black;
+    color: black;
+}
+
+.b{
+    font-weight: bolder;
+    font-family: geon;
+    font-size: 2rem;
+}
+
+/*===================================================================================================================
+*/
+
+@media screen and (max-width: 600px) {
+    nav{
+        height: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgb(7,1,33);
+        background: linear-gradient(180deg, rgba(7,1,33,1) 0%, rgba(3,2,42,1) 26%, rgba(0,1,47,1) 100%);
+        background-repeat: no-repeat;
+        /*box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);*/
+        /*background-color: white;*/
+    }
+
+    input{
+        height: 1.5rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
+        border:none;
+    }
+    
+    input[type="button"]{
+        height: 1.7rem;
+        transition: 0.1s;
+        background-color: orange;
+        border-radius: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        cursor: pointer;
+    }
+
+    .b{
+        font-weight: bolder;
+        font-family: geon;
+        font-size: 1.4rem;
+    }
+
+    body{
+        font-family: verdana;
+        margin-top: 3rem;
+    }
 }
