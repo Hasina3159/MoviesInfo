@@ -52,15 +52,22 @@ function pageNumber(number){
 
 function createAllPageNumber(allPages, actualPage){
 	pagesDOM.innerHTML = '';
-	if (actualPage > 5)
+	if (actualPage > 5){
+		pageNumber(1);
 		pageNumber(0);
+
+	}
 	for(let i = actualPage - 4; i <= parseInt(actualPage) + 4; i++){
 		if (i > 0 && i <= allPages){
 			pageNumber(i);
 		}
 	}
 	if (actualPage < allPages - 5)
+	{
 		pageNumber(0);
+		pageNumber(allPages);
+
+	}
 }
 
 function listenPagesNumber(allPagesNumber){
@@ -128,6 +135,7 @@ function showMovieDetails(infos){
 	if (infos.Poster){
 		background.style.backgroundImage = "url('" + infos.Poster + "')";
 	}
+	pagesDOM.classList.add("bottom");
 	if(infos.Response == "True"){
 		allMovies.innerHTML = `
 		<div class="detail" id="${infos.imdbID}" id="mamamody">
@@ -146,12 +154,21 @@ function showMovieDetails(infos){
 				<div class="line"></div>
 				<div class="movieTitleDetail">
 					${infos.Title != "N/A" ? infos.Title : "Aucun(e)"}
+					<span class="genre">
+						(${infos.Genre})
+					</span>
 				</div>
 				<div class="line"></div>
-				<div class="year">
+				
+				<div class="year bold">
 					Year : ${infos.Year.length == 4 || infos.Year.length == 9 ? infos.Year : infos.Year.slice(0, -1)}
 				</div>
 				<div class="line"></div>
+				<div class="actor bold">
+					Actors : ${infos.Actors}
+				</div>
+				<div class="line"></div>
+
 				<div class="synopsisDetail" id="synopsis">
 					${infos.Plot != "N/A" ? infos.Plot : "Aucun(e)"}
 				</div>
@@ -165,10 +182,11 @@ function showMovieDetails(infos){
 }
 
 function showMovie(infos){
+	pagesDOM.classList.remove("bottom");
 	allMovies.innerHTML = allMovies.innerHTML + `
 		<div class="element">
 			<div class="date">
-				${infos.Year.length == 4 || infos.Year.length == 9 ? infos.Year : infos.Year.slice(0, -1)}
+				${infos.Type == "movie" ? "Movie" : "Series"}
 			</div>
 			<div class="error">
 				Image not found

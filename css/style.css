@@ -18,6 +18,10 @@
   'opsz' 40
 }
 
+.contain{
+    width: 100%;
+}
+
 .hide#prev{
     transition: 0.5s;
     opacity: 0;
@@ -25,6 +29,9 @@
 }
 
 #prev{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: 0.5s;
     cursor: pointer;
 }
@@ -42,11 +49,10 @@ body{
 
 .container{
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow-y: scroll;
     margin-top: 5rem;
     width: 100%;
+    padding: 0;
 }
 
 .allMovies {
@@ -95,11 +101,27 @@ body{
     border-radius: 5px;
     z-index: 0;
     height: 300px;
+    padding-top: 1.5rem;
+
 }
+
+@keyframes changeBackground {
+    0% {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, rgba(0, 0, 0, 0.0) 65%, rgb(0, 0, 0) 80%, rgb(0, 0, 0) 90%, rgb(0, 0, 0) 100%);
+        opacity: 1;
+    }
+    1% {
+        opacity: 0.9;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.8) 65%, rgba(0, 0, 0.8) 80%, rgb(0, 0, 0) 90%, rgb(0, 0, 0) 100%);
+    }
+    100% {
+        opacity: 1;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.8) 65%, rgba(0, 0, 0.8) 80%, rgb(0, 0, 0) 90%, rgb(0, 0, 0) 100%);
+    }
+}  
 
 .allMovies .element .image .front{
     z-index: 2000;
-    transition: 0.5s;
     border: 10px solid black;
     position: absolute;
     top: 0px;
@@ -110,9 +132,12 @@ body{
 }
 
 .allMovies .element .image .front:hover{
-    transition: 0.5s;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.0) 0%, rgba(0, 0, 0, 0.5) 40%, rgb(0, 0, 0) 75%,rgba(0, 0, 0, 0.9) 90%,rgb(0, 0, 0) 100%);
+    animation: changeBackground 0.5s forwards;
+}
 
+.front:hover ~ img{
+    transition: 0.1s;
+    transform: scale(1.1);
 }
 
 .allMovies .movieTitle{
@@ -144,10 +169,17 @@ body{
 .date{
     position: absolute;
     z-index: 3;
-    top: 15px;
-    right: 15px;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    top: 0.5rem;
+    right: 0.5rem;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid white;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    box-shadow: 1px 1px solid black;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 /* =================================================================
 navbar 
@@ -162,8 +194,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(7,1,33);
-    background: linear-gradient(180deg, rgba(7,1,33,1) 0%, rgba(3,2,42,1) 26%, rgba(0,1,47,1) 100%);
+    background: rgba(7,1,33, 0.7);
     background-repeat: no-repeat;
 }
 
@@ -197,9 +228,9 @@ input[type="button"]{
     transition: 0.1s;
     background-color: orange;
     border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
     cursor: pointer;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 input[type="button"]:hover{
@@ -214,6 +245,10 @@ input[type="button"]:hover{
     font-size: 2rem;
 }
 
+.hamburger{
+    display: none;
+}
+
 /*===================================================================================================================
 */
 
@@ -226,8 +261,6 @@ input[type="button"]:hover{
         background: rgb(7,1,33);
         background: linear-gradient(180deg, rgba(7,1,33,1) 0%, rgba(3,2,42,1) 26%, rgba(0,1,47,1) 100%);
         background-repeat: no-repeat;
-        /*box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);*/
-        /*background-color: white;*/
     }
 
     input{
@@ -236,14 +269,19 @@ input[type="button"]:hover{
         border-radius: 5px;
         border:none;
     }
+
+    input[type="text"]{
+        width: 10rem;
+        height: 1.6rem;
+    }
     
     input[type="button"]{
         height: 1.7rem;
         transition: 0.1s;
         background-color: orange;
         border-radius: 5px;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
         cursor: pointer;
     }
 
@@ -258,3 +296,47 @@ input[type="button"]:hover{
         margin-top: 3rem;
     }
 }
+
+@media screen and (max-width: 450px) {
+    .menu{
+        display: none;
+        position: absolute;
+        transform: rotate(-20deg);
+        right: 0;
+        top: 0;
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+    nav{
+        z-index: 1000;
+    }  
+}
+
+
+@media screen and (max-width: 230px) {
+    .allMovies {
+        width: 95%;
+    }
+
+    .allMovies .element{
+        width: 100%;
+    }
+
+    .allMovies .element img{
+        width: 100%;
+        height: auto;
+        padding-top: 1.5rem;
+    }
+    
+    .allMovies .element .image .front{
+        width: 100%;
+    }
+
+    .date{
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}  

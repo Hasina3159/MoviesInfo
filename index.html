@@ -12,8 +12,8 @@
     <title>Movies</title>
 </head>
 <body>
-    <div id="background" class="background"></div>
-    <nav>
+    <div class="contain">
+        <nav>
         <div class="left b">
             <div id="prev">
                 <span class="material-symbols-rounded">
@@ -22,11 +22,15 @@
             </div>
             MoviesInfo
         </div>
-        <div class="right">
+        <div class="right menu">
             <input type="text" name="title" id="title" placeholder="Titre" required>
             <input type="button" value="search" id="search">
         </div>
-        
+        <div class="hamburger right">
+            <span class="material-symbols-rounded">
+                menu
+                </span>
+        </div>
     </nav>
     <div id="loadingIndicator">
         <div class="loader"></div>
@@ -45,5 +49,8 @@
             1
         </div>
     </div>
+    </div>
+    <div id="background" class="background"></div>
+    
 </body>
 </html>
