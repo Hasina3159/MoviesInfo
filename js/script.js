@@ -86,7 +86,7 @@ function listenPagesNumber(allPagesNumber){
 async function getMovieByTitle(title, actualPage){
 	const loadingIndicator = document.getElementById('loadingIndicator');
 	loadingIndicator.style.display = 'block';
-	const query = `http://www.omdbapi.com/?s=${title}&page=${actualPage}&apikey=${API_KEY}`
+	const query = `https://www.omdbapi.com/?s=${title}&page=${actualPage}&apikey=${API_KEY}`
 	const response = await fetch(query);
 	const movies = await response.json();
 
@@ -119,7 +119,7 @@ async function getMovieByTitle(title, actualPage){
 async function getMovieByID(ID){
 	const loadingIndicator = document.getElementById('loadingIndicator');
 	loadingIndicator.style.display = 'block';
-	const query = `http://www.omdbapi.com/?i=${ID}&apikey=${API_KEY}&plot=full`;
+	const query = `https://www.omdbapi.com/?i=${ID}&apikey=${API_KEY}&plot=full`;
 	const response = await fetch(query);
 	const movies = await response.json();
 
