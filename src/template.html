@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./pages.css">
+	<link rel="stylesheet" href="./detail.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<script type="text/javascript" src="./index.js" defer></script>
+	<title>Movies</title>
+</head>
+<body>
+	<div class="contain">
+		<nav>
+		<div class="left b">
+			<div id="prev">
+				<span class="material-symbols-rounded">
+					arrow_back_ios
+				</span>
+			</div>
+			MoviesInfo
+		</div>
+		<div class="right menu">
+			<input type="text" name="title" id="title" placeholder="Titre" required>
+			<input type="button" value="search" id="search">
+		</div>
+		<div class="hamburger right">
+			<span class="material-symbols-rounded">
+				menu
+				</span>
+		</div>
+	</nav>
+	<div id="loadingIndicator">
+		<div class="loader"></div>
+	</div>
+	
+	<div class="container">
+		<div class="allMovies" id="allMovies">
+			<div class="image">
+				<img src="#" alt="">
+			</div>
+			<div class="front"></div>
+		</div>
+	</div>
+	<div class="pages" id="pages">
+		<div class="number" id="1">
+			1
+		</div>
+	</div>
+	</div>
+	<div id="background" class="background"></div>
+	
+</body>
+</html>
